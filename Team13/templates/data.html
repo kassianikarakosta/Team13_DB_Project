@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Company DB</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+    
+
+    
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('creator') }}">creator</a>
+        <a href="{{ url_for('producer') }}">producer</a>
+        <a href="{{ url_for('song') }}">song</a>
+        <a href="{{ url_for('album') }}">album</a>
+        <a href="{{ url_for('studio') }}">studio</a>
+        <a href="{{ url_for('sales') }}">sales</a>
+        <a class="active" href="{{ url_for('data') }}">show data</a>
+    </div>
+
+
+    <div class="box">
+        <form action="/studio" method="POST">
+            <div class="tables">
+                <label for="table1"><b>Songs/Studios:</b></label><br>
+                <div class="table1">
+                    <table class="centered-table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Studio</th>
+                                <th>Songs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in studio_data %}
+                                <tr>
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div></br>
+
+                <label for="table2"><b>Best album of the year:</b></label><br>
+                <div class="table2">
+                    <table class="centered-table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Album</th>                              
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in album_sales_data %}
+                                <tr>
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div><br>
+
+                <label for="table3"><b>Popular Producer:</b></label><br>
+                <div class="table3">
+                    <table class="centered-table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Producer</th>
+                                <th>Songs</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in producer_data %}
+                                <tr>
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div><br>
+
+                <label for="table4"><b>Popular Category/Year:</b></label><br>
+                <div class="table4">
+                    <table class="centered-table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Category</th>
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in category_data %}
+                                <tr>
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023-24 Team 13 - DB Project. All rights reserved.</p>
+    </footer><br><br>
+
+</body>
+</html>

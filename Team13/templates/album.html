@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Company DB</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+
+
+</head>
+
+<body>
+
+
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('creator') }}">creator</a>
+        <a href="{{ url_for('producer') }}">producer</a>
+        <a href="{{ url_for('song') }}">song</a>
+        <a class="active" href="{{ url_for('album') }}">album</a>
+        <a href="{{ url_for('studio') }}">studio</a>
+        <a href="{{ url_for('sales') }}">sales</a>
+        <a href="{{ url_for('data') }}">show data</a>
+
+    </div>
+
+
+    <br><br><br>
+    <div class="box">
+        <form action="/album" method="POST">
+            <h1>Insert Data</h1>
+            <div class="inputs">
+                <label for="album_title">Title:</label><br>
+                <input type="text" id="album_title" name="album_title" required><br>
+                <br>
+                <label for="release_date">Release Date:</label><br>
+                <input type="date" id="release_date" name="release_date" required><br>
+                <br>
+
+            </div>
+
+            <br>
+            <br>
+            <div class="buttons">
+                <button type="submit" id="submit" name="submit" value="sub">Submit</button>
+
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="box">
+        <form action="/album" method="POST">
+            <h1>Delete Data</h1>
+            <div class="deletes">
+                <!-- Personal Info -->
+                <label for="album">Album:</label><br>
+                <select id="album" name="album" required>
+                    {% for a_name in albums %}
+                        <option value="{{ a_name }}">{{ a_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <br>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="buttons">
+                <button type="delete" id="delete" name="submit" value="del">Delete</button>
+            </div><br><br>
+        </form>
+    </div>
+    <br><br><br><br>
+    <footer>
+        <p>&copy; 2023-24 Team 13 - DB Project. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

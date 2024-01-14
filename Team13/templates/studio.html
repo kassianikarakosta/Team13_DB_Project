@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Company DB</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('creator') }}">creator</a>
+        <a href="{{ url_for('producer') }}">producer</a>
+        <a href="{{ url_for('song') }}">song</a>
+        <a href="{{ url_for('album') }}">album</a>
+        <a class="active" href="{{ url_for('studio') }}">studio</a>
+        <a href="{{ url_for('sales') }}">sales</a>
+        <a href="{{ url_for('data') }}">show data</a>
+    </div>
+    <br><br><br>
+
+    <div class="box">
+        <form action="/studio" method="POST">
+            <h1>Insert Data</h1>
+            <div class="inputs">
+                <!--Personal Info-->
+                <label for="studio_name">Name:</label><br>
+                <input type="text" id="studio_name" name="studio_name" required><br>
+                <br>
+                <label for="phone">Phone:</label><br>
+                <input type="text" id="phone" name="phone" placeholder="+306912345678" required><br>
+                <br>
+
+                <!--Address-->
+                <label for="streetname">Street Name:</label><br>
+                <input type="text" id="streetname" name="streetname" required><br>
+                <br>
+                <label for="streetnum">Street Number:</label><br>
+                <input type="text" id="streetnum" name="streetnum" required><br>
+                <br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city" required><br>
+                <br>
+                <label for="postcode">Post Code:</label><br>
+                <input type="text" id="postcode" name="postcode" required><br>
+                <br>
+            </div>
+
+            <br>
+            <br>
+            <div class="buttons">
+                <button type="submit" id="submit" name="submit" value="sub">Submit</button>
+            </div>
+        </form>
+    </div>
+<br>
+    <div class="box">
+        <form action="/studio" method="POST">
+            <h1>Update Data</h1>
+            <div class="updates">
+                <!--Personal Info-->
+                <label for="studio_name">Studio:</label><br>
+                <select id="studio_name" name="studio_name">
+                    {% for s_name in studios %}
+                        <option value="{{ s_name }}">{{ s_name }}</option>
+                    {% endfor %}
+                </select><br>
+                <br>
+                <label for="phone">Phone:</label><br>
+                <input type="text" id="phone" name="phone" placeholder="+306912345678"><br>
+                <br>
+
+                <!--Address-->
+                <label for="streetname">Street Name:</label><br>
+                <input type="text" id="streetname" name="streetname"><br>
+                <br>
+                <label for="streetnum">Street Number:</label><br>
+                <input type="text" id="streetnum" name="streetnum"><br>
+                <br>
+                <label for="city">City:</label><br>
+                <input type="text" id="city" name="city"><br>
+                <br>
+                <label for="postcode">Post Code:</label><br>
+                <input type="text" id="postcode" name="postcode"><br>
+                <br>
+            </div>
+
+            <br>
+            <br>
+            <div class="buttons">
+                <button type="submit" id="submit" name="submit" value="upd">Submit</button>
+
+            </div>
+        </form>
+    </div>
+
+<br>
+<div class="box">
+    <form action="/studio" method="POST">
+        <h1>Delete Data</h1>
+        <div class="deletes">
+            <!-- Personal Info -->
+            <label for="studio">Studio:</label><br>
+            <select id="studio" name="studio" required>
+                {% for s_name in studios %}
+                    <option value="{{ s_name }}">{{ s_name }}</option>
+                {% endfor %}
+            </select><br><br>
+            <br>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="buttons">
+            <button type="delete" id="delete" name="submit" value="del">Delete</button>
+        </div><br><br>
+    </form>
+</div>
+    <br><br><br>
+    <footer>
+        <p>&copy; 2023-24 Team 13 - DB Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>

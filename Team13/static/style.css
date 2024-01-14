@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: "Lucida Console", monospace;
+  background-color: #F3F1F3;
+  text-align: center;
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #4d3646;
+  align-items: center;
+  
+}
+
+footer
+{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  padding: 10px;
+  float: left;
+  background-color: #B6B2BE;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.box {
+  border-radius: 50px;
+  background-color: #E3DEE3;
+  padding: 20px;
+  opacity: 0.9;
+}
+
+.box2 {
+  border-radius: 50px;
+  background-color: #E3DEE3;
+  padding: 20px;
+  opacity: 0.9;
+}
+
+/*Text Inputs Start*/
+
+.inputs {
+  text-align: center;
+  column-count: 2;
+  column-gap: 20px;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+  column-rule-color: #E3DEE3;
+  /* opacity: 1.0; */
+  
+}
+
+.deletes {
+  text-align: center;  
+}
+
+input {
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+select {
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+  margin-bottom: 10px;
+  font-family: "Lucida Console", monospace;
+}
+
+
+/*Text Inputs End*/
+
+/*Buttons Start*/
+
+.buttons button{
+  background-color: #6D4B63;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.tables {
+  column-count: 2;
+  column-gap: 20px;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+  column-rule-color: #E3DEE3;
+
+}
+
+
+.buttons button:hover {
+  background-color: #836B80;
+  color: #ffffff;
+}
+
+/*Buttons End*/
+
+.centered-table {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+
+
+/*Navidation Bar Start*/
+.topnav {
+  overflow: hidden;
+  background-color: #6D4B63;
+  text-align: left;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  background-color: #6D4B63;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.topnav a:hover {
+  background-color: #998A9C;
+  color: #ffffff;
+}
+
+.topnav a.active {
+    background-color: #998A9C;
+    color: #ffffff;
+
+}
+
+/*Navidation Bar Ends*/

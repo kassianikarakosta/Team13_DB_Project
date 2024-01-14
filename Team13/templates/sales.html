@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Company DB</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+
+
+</head>
+
+<body>
+
+
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('creator') }}">creator</a>
+        <a href="{{ url_for('producer') }}">producer</a>
+        <a href="{{ url_for('song') }}">song</a>
+        <a href="{{ url_for('album') }}">album</a>
+        <a href="{{ url_for('studio') }}">studio</a>
+        <a class="active" href="{{ url_for('sales') }}">sales</a>
+        <a href="{{ url_for('data') }}">show data</a>
+
+    </div>
+
+
+    <br><br><br>
+    <div class="box">
+        <form action="/sales" method="POST">
+            <h1>Insert Data</h1>
+            <div class="inputs">
+                <label for="album_title">Album Title:</label><br>
+                <select id="album_title" name="album_title" required>
+                    {% for title in album_titles %}
+                        <option value="{{ title }}">{{ title }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+
+                <label for="album_qtty">Quantity:</label><br>
+                <input type="text" id="album_qtty" name="album_qtty" required><br>
+                <br>
+
+                <label for="s_month">Month:</label><br>
+                <select id="s_month" name="s_month" required>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+
+                </select>
+                <br>
+                <label for="s_year">Year:</label><br>
+                <input type="text" id="s_year" name="s_year" required pattern="[0-9]{4}" placeholder="YYYY" required><br>
+                <br>
+
+            </div>
+
+            <br>
+            <br>
+            <div class="buttons">
+                <button type="submit" id="submit" name="submit" value="sub">Submit</button>
+
+            </div>
+        </form>
+    </div>
+    <br>
+
+    <div class="box">
+        <form action="/sales" method="POST">
+            <h1>Delete Data</h1>
+            <div class="deletes">
+                <!-- Sales Info -->
+                <label for="album_title">Album Title:</label><br>
+                <select id="album_title" name="album_title" required>
+                    {% for title in album_titles %}
+                        <option value="{{ title }}">{{ title }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <br>
+                <label for="year">Year:</label><br>
+                <select id="year" name="year" required>
+                    {% for y_name in years %}
+                        <option value="{{ y_name }}">{{ y_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <br>
+                <label for="s_month">Month:</label><br>
+                <select id="s_month" name="s_month" required>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+
+                </select><br><br>
+                <br>
+                
+                
+            </div>
+
+            <br>
+            <br>
+
+            <div class="buttons">
+                <button type="delete" id="delete" name="submit" value="del">Delete</button>
+            </div><br><br>
+        </form>
+    </div>
+<br><br><br><br>
+    <footer>
+        <p>&copy; 2023-24 Team 13 - DB Project. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>

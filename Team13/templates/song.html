@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Company DB</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+
+
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">home</a>
+        <a href="{{ url_for('creator') }}">creator</a>
+        <a href="{{ url_for('producer') }}">producer</a>
+        <a class="active" href="{{ url_for('song') }}">song</a>
+        <a href="{{ url_for('album') }}">album</a>
+        <a href="{{ url_for('studio') }}">studio</a>
+        <a href="{{ url_for('sales') }}">sales</a>
+        <a href="{{ url_for('data') }}">show data</a>
+    </div>
+    <br><br><br>
+
+    <div class="box">
+        <form action="/song" method="POST">
+            <h1>Insert Data</h1>
+            <div class="inputs">
+                <label for="song_title">Title:</label><br>
+                <input type="text" id="song_title" name="song_title" required><br>
+                <br>
+
+                <label for="album_title">Album Title:</label><br>
+
+                <select id="album_title" name="album_title">
+                    <option value="none">None</option>
+                    {% for title in album_titles %}
+                        <option value="{{ title }}">{{ title }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="category">Category:</label><br>
+                <select id="category" name="category" required>
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <option value="hip-rap">Hip-Hop/Rap</option>
+                    <option value="metal">Metal</option>
+                    <option value="disco">Disco</option>
+                    <option value="kpop">K-Pop</option>
+                </select>
+                <br><br>
+
+                <label for="studio_name">Studio Name:</label><br>
+                <select id="studio_name" name="studio_name" required>
+                    {% for st_name in studio_names %}
+                        <option value="{{ st_name }}">{{ st_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="artist_name">Singer's Name:</label><br>
+                <select id="artist_name" name="artist_name" required>
+                    {% for art_name in artist_names %}
+                        <option value="{{ art_name }}">{{ art_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="producer_name">Producer's Name:</label><br>
+                <select id="producer_name" name="producer_name" required>
+                    {% for pr_name in producer_names %}
+                        <option value="{{ pr_name }}">{{ pr_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="composer_name">Composer's Name:</label><br>
+                <select id="composer_name" name="composer_name" required>
+                    {% for pr_name in composer_names %}
+                        <option value="{{ pr_name }}">{{ pr_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="lyricist_name">Lyricist's Name:</label><br>
+                <select id="lyricist_name" name="lyricist_name" required>
+                    {% for pr_name in lyricist_names %}
+                        <option value="{{ pr_name }}">{{ pr_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="duration">Duration:</label><br>
+                <input type="text" id="duration" name="duration" required pattern="[0-9]{2}:[0-9]{2}:[0-9]{2}" placeholder="hh:mm:ss" required><br>
+                <br>
+
+                <label for="release_date">Release Date:</label><br>
+                <input type="date" id="release_date" name="release_date" required><br>
+                <br>
+
+
+            </div>
+
+
+                <br>
+                <br>
+
+                <div class="buttons">
+                    <button type="submit" id="submit" name="submit" value="sub">Submit</button>
+
+                </div>
+        </form>
+    </div>
+    <br>
+    <div class="box">
+        <form action="/song" method="POST">
+            <h1>Delete Data</h1>
+            <div class="deletes">
+                <!-- Personal Info -->
+                <label for="song">Song:</label><br>
+                <select id="song" name="song" required>
+                    {% for s_name in songs %}
+                        <option value="{{ s_name }}">{{ s_name }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <br>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="buttons">
+                <button type="delete" id="delete" name="submit" value="del">Delete</button>
+            </div><br><br>
+        </form>
+    </div>
+    <br><br><br><br>
+    <footer>
+        <p>&copy; 2023-24 Team 13 - DB Project. All rights reserved.</p>
+    </footer>
+
+
+</body>
+</html>
